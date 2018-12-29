@@ -2,8 +2,7 @@
 import time
 
 from console_progressbar import ProgressBar
-from termcolor import cprint
-from pyfiglet import figlet_format
+
 
 from ascii_art import CoffeeDrinksAscii
 from UserInput import UserInput
@@ -25,13 +24,13 @@ coffeeDrinksAscii = CoffeeDrinksAscii()
 
 while True:
     userInput = UserInput()
-    drink_type = userInput.getCoffeType()
-    coffee_strength = userInput.getCoffeeStrength()
+    drink_type = userInput.get_coffee_type(hideDebugPrint=True)
+    coffee_strength = userInput.get_coffee_strength()
 
     pb1 = ProgressBar(total=100, prefix="Containers preparing", suffix="Complete", decimals=3, length=50, zfill='-')
     sleepTime = 0.7
     # with HiddenPrints():
-    coffeeContainer.take_needed_ingredient_amount(needed_ingredient_amount=3)  # TODO: zrobic parametr - ukryj obrazki, i ukryj printy debugujace
+    coffeeContainer.take_needed_ingredient_amount(needed_ingredient_amount=3, hideDebugPrints=True)  # TODO: zrobic parametr - ukryj obrazki, i ukryj printy debugujace
     pb1.print_progress_bar(20)
     time.sleep(sleepTime)
 
@@ -51,7 +50,8 @@ while True:
     time.sleep(sleepTime)
 
     pb1.print_progress_bar(100)
-    cprint(figlet_format("ready", font="starwars"), "white")
+    coffeeDrinksAscii.print_coffee_machine()
+
 
     pb1 = ProgressBar(total=100, prefix="Coffee drink preparing", suffix="Complete", decimals=3, length=50, zfill='-')
     count = 0

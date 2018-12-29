@@ -19,8 +19,8 @@ coffeeDrinksAscii = CoffeeDrinksAscii()
 
 while True:
     userInput = UserInput()
-    drink_type = userInput.getCoffeType()
-    coffee_strength = userInput.getCoffeeStrength()
+    drink_type = userInput.get_coffee_type()
+    coffee_strength = userInput.get_coffee_strength()
 
     coffeeContainer.take_needed_ingredient_amount(needed_ingredient_amount=3, hideDrawings=True)
     waterContainer.take_needed_ingredient_amount(needed_ingredient_amount=100, hideDrawings=True)
