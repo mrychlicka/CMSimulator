@@ -1,9 +1,12 @@
+from termcolor import cprint
+from pyfiglet import figlet_format
+
 class UserInput:
 
-    def getCoffeType(self):
+    def get_coffee_type(self, hideASCII=False, hideDebugPrint=False):
         for i in xrange(2):
-            drink_number = raw_input(
-                "Pick coffe drink or turn off coffee machine - type \'1\' if you want espresso, \'2\' for cappucino, \'3\' for latte macchiato or \'exit\' to turn off coffee machine: ")
+            drink_number = raw_input("Pick coffe drink or turn off coffee machine - type \'1\' if you want espresso, "
+                                     "\'2\' for cappucino, \'3\' for latte macchiato or \'exit\' to turn off coffee machine: ")
             if drink_number == "1":
                 drink_type = "espresso"
                 return drink_type
@@ -14,18 +17,22 @@ class UserInput:
                 drink_type = "latte macchiato"
                 return drink_type
             if drink_number == "exit":
-                print "Coffee machine turned off"
+                if not hideASCII:
+                    cprint(figlet_format("TURNED OFF", font="standard"), "white")
+                if not hideDebugPrint:
+                    print "Coffee machine turned off"
                 exit(0)
             else:
                 if i == 0:
                     print "Wrong input. Try again"
                 else:
-                    print "Wrong input. Kawa nie moze zostac zrobiona"
+                    print "Wrong input. Coffee drink cannot be done"
         return False
 
-    def getCoffeeStrength(self):
+    def get_coffee_strength(self):
         for i in xrange(2):
-            coffee_strength_number = raw_input("Pick coffee strength - type \' 1\' if you want weak coffee, \'2\' for normal lub \'3\' for strong coffee: ")
+            coffee_strength_number = raw_input("Pick coffee strength - type \' 1\' if you want weak coffee, "
+                                               "\'2\' for normal or \'3\' for strong coffee: ")
             if coffee_strength_number == "1":
                 coffee_strength = 3
                 return coffee_strength
