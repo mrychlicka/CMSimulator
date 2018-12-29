@@ -13,7 +13,8 @@ class CoffeeGrinder:
                 print "Grinding... Ground %s grams of coffee" % (i + 1)
             print "Coffee grounded successfully"
             coffee_ground = True
-        print "[!!!] Grinding coffee failed"
+        else:
+            print "[!!!] Grinding coffee failed"
         return coffee_ground
 
 
