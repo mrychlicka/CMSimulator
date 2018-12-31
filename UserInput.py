@@ -9,15 +9,16 @@ class UserInput:
             drink_number = raw_input("Pick coffe drink or turn off coffee machine - type \'1\' for espresso, "
                                      "\'2\' - cappucino, \'3\' - latte macchiato or "
                                      "\'exit\' to turn off coffee machine: ")
-            if drink_number == "1":
-                drink_type = "espresso"
-                return drink_type
-            if drink_number == "2":
-                drink_type = "capuccino"
-                return drink_type
-            if drink_number == "3":
-                drink_type = "latte macchiato"
-                return drink_type
+
+            drinks = {"1": "espresso",
+                      "2": "capuccino",
+                      "3": "latte macchiato"}
+
+            for key in drinks:
+                if drink_number == key:
+                    drink_type = drinks[key]
+                    return drink_type
+
             if drink_number == "exit":
                 if not hideASCII:
                     cprint(figlet_format("TURNED OFF", font="standard"), "white")
