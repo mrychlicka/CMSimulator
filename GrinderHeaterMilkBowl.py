@@ -55,22 +55,22 @@ class CoffeeBrewingBowl:
 
 
 class MilkFrother():
-    def __init__(self, howManyMilk):
-        self.howManyMilk = howManyMilk
+    def __init__(self, how_many_milk):
+        self.how_many_milk = how_many_milk
 
     def _milkFrothing(self):
         milkIsFrothed = False
-        for i in xrange(self.howManyMilk):
+        for i in xrange(self.how_many_milk):
             if i % 20 == 0:
                 print "Milk frothing..."
-            if i == self.howManyMilk-1:
+            if i == self.how_many_milk-1:
                 print "Milk frothed successfully"
                 milkIsFrothed = True
         return milkIsFrothed
 
     def pourMilk(self, steamed=False):
         milkInCup = False
-        if not self.howManyMilk <= 0:
+        if not self.how_many_milk <= 0:
             milkInCup = True
             if steamed:
                 return self._milkFrothing() and milkInCup

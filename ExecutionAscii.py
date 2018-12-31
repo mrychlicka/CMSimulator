@@ -28,19 +28,19 @@ while True:
     pb1 = ProgressBar(total=100, prefix="Containers preparing", suffix="Complete", decimals=3, length=50, zfill='-')
     sleepTime = 0.7
 
-    coffeeContainer.take_needed_ingredient_amount(needed_ingredient_amount=3, hideDebugPrints=True)
+    coffeeContainer.take_needed_ingredient_amount(needed_ingredient_amount=3, hide_debug_prints=True)
     pb1.print_progress_bar(20)
     time.sleep(sleepTime)
 
-    waterContainer.take_needed_ingredient_amount(needed_ingredient_amount=100, hideDrawings=False, hideDebugPrints=True)
+    waterContainer.take_needed_ingredient_amount(needed_ingredient_amount=100, hide_drawings=False, hide_debug_prints=True)
     pb1.print_progress_bar(40)
     time.sleep(sleepTime)
 
-    milkContainer.take_needed_ingredient_amount(needed_ingredient_amount=100, hideDrawings=False, hideDebugPrints=True)
+    milkContainer.take_needed_ingredient_amount(needed_ingredient_amount=100, hide_drawings=False, hide_debug_prints=True)
     pb1.print_progress_bar(60)
     time.sleep(sleepTime)
 
-    groundsContainer.take_needed_ingredient_amount(needed_ingredient_amount=1, hideDrawings=False, hideDebugPrints=True)
+    groundsContainer.take_needed_ingredient_amount(needed_ingredient_amount=1, hide_drawings=False, hide_debug_prints=True)
     pb1.print_progress_bar(80)
     time.sleep(sleepTime)
 
@@ -66,7 +66,7 @@ while True:
         with HiddenPrints():
             made_cappucino = cappucino.make_cappucino()
         if made_cappucino:
-            coffeeDrinksAscii.print_capuccino()
+            coffeeDrinksAscii.print_cappuccino()
 
     if drink_type == "latte macchiato":
         latteMacchiato = LatteMacchiato(coffee_strength=coffee_strength)

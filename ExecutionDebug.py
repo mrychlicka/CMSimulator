@@ -21,10 +21,10 @@ while True:
     drink_type = userInput.get_coffee_type()
     coffee_strength = userInput.get_coffee_strength()
 
-    coffeeContainer.take_needed_ingredient_amount(needed_ingredient_amount=3, hideDrawings=True)
-    waterContainer.take_needed_ingredient_amount(needed_ingredient_amount=100, hideDrawings=True)
-    milkContainer.take_needed_ingredient_amount(needed_ingredient_amount=100, hideDrawings=True)
-    groundsContainer.take_needed_ingredient_amount(needed_ingredient_amount=1, hideDrawings=True)
+    coffeeContainer.take_needed_ingredient_amount(needed_ingredient_amount=3, hide_drawings=True)
+    waterContainer.take_needed_ingredient_amount(needed_ingredient_amount=100, hide_drawings=True)
+    milkContainer.take_needed_ingredient_amount(needed_ingredient_amount=100, hide_drawings=True)
+    groundsContainer.take_needed_ingredient_amount(needed_ingredient_amount=1, hide_drawings=True)
 
     if drink_type == "espresso":
         espresso = Espresso(coffee_strength=coffee_strength)

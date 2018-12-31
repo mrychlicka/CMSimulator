@@ -62,7 +62,7 @@ class CoffeeDrinksAscii:
         print "   `\"--.__                   __.--\"'"
         print "          `""-------------""'"
 
-    def print_capuccino(self):
+    def print_cappuccino(self):
         print "                        ("
         print "                          )     ("
         print "                   ___...(-------)-....___"

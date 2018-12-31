@@ -29,7 +29,7 @@ class Cappucino(Espresso):
 
     def make_cappucino(self):
         espresso = self.make_espresso()
-        steamed_milk = MilkFrother(howManyMilk=self.milk).pourMilk(steamed=True)
+        steamed_milk = MilkFrother(how_many_milk=self.milk).pourMilk(steamed=True)
         return espresso and steamed_milk
 
 
@@ -40,7 +40,7 @@ class LatteMacchiato(Espresso):
         self.milk = 200
 
     def make_latte_macchiato(self):
-        milkFrother = MilkFrother(howManyMilk=self.milk/2)
+        milkFrother = MilkFrother(how_many_milk=self.milk/2)
         no_steamed_milk = milkFrother.pourMilk(steamed=False)
         espresso = self.make_espresso()
         steamed_milk = milkFrother.pourMilk(steamed=True)
