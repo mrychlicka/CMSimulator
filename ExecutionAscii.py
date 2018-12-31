@@ -8,9 +8,9 @@ from Containers import CoffeeContainer, WaterContainer, MilkContainer, GroundsCo
 from DrinkTypes import Espresso, Cappuccino, LatteMacchiato
 from HidePrint import HiddenPrints
 
-coffee_available = 7
-water_available = 300
-milk_available = 400
+coffee_available = 3
+water_available = 500
+milk_available = 100
 grounds_space = 4
 
 coffeeContainer = CoffeeContainer(coffee_available)
@@ -21,11 +21,20 @@ groundsContainer = GroundsContainer(grounds_space)
 coffeeDrinksAscii = CoffeeDrinksAscii()
 
 while True:
+
+    print " ======= Containers state ======= "
+    containers = {coffeeContainer: coffee_available, waterContainer: water_available, milkContainer: milk_available, groundsContainer: grounds_space}
+
+    for container in containers:
+        container.print_container_state_progres_bar(ingredient_available=containers[container])
+        print ""
+        time.sleep(1)
+
     userInput = UserInput()
     drink_type = userInput.get_coffee_type(hideDebugPrint=True)
     coffee_strength = userInput.get_coffee_strength()
 
-    pb1 = ProgressBar(total=100, prefix="Containers preparing", suffix="Complete", decimals=3, length=50, zfill='-')
+    pb1 = ProgressBar(total=100, prefix="Containers preparing", suffix="Complete", decimals=0, length=50, zfill='-')
     sleepTime = 0.7
 
     coffeeContainer.take_needed_ingredient_amount(needed_ingredient_amount=3, hide_debug_prints=True)
@@ -47,7 +56,7 @@ while True:
     pb1.print_progress_bar(100)
     coffeeDrinksAscii.print_coffee_machine()
 
-    pb1 = ProgressBar(total=100, prefix="Coffee drink preparing", suffix="Complete", decimals=3, length=50, zfill='-')
+    pb1 = ProgressBar(total=100, prefix="Coffee drink preparing", suffix="Complete", decimals=0, length=50, zfill='-')
     count = 0
     for i in range(5):
         count += 20
