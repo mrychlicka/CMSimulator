@@ -27,7 +27,7 @@ class Espresso:
         return espressoInCup
 
 
-class Cappucino(Espresso):
+class Cappuccino(Espresso):
     """ Class represents cappuccino coffee drink """
 
     def __init__(self, coffee_strength):
@@ -35,7 +35,7 @@ class Cappucino(Espresso):
         self.coffee = coffee_strength
         self.milk = 100
 
-    def make_cappucino(self):
+    def make_cappuccino(self):
         """
         Prepare cappuccino coffee drink
         Returns True if cappuccino prepared successfully, False otherwise
@@ -58,8 +58,8 @@ class LatteMacchiato(Espresso):
         Prepare latte macchiato coffee drink
         Returns True if latte macchiato prepared successfully, False otherwise
         """
-        milkFrother = MilkFrother(how_many_milk=self.milk/2)
-        no_steamed_milk = milkFrother.pour_milk(steamed=False)
+        milk_frother = MilkFrother(how_many_milk=self.milk/2)
+        no_steamed_milk = milk_frother.pour_milk(steamed=False)
         espresso = self.make_espresso()
-        steamed_milk = milkFrother.pour_milk(steamed=True)
+        steamed_milk = milk_frother.pour_milk(steamed=True)
         return no_steamed_milk and espresso and steamed_milk

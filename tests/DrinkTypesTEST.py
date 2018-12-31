@@ -1,5 +1,5 @@
 from unittest import TestCase
-from code.DrinkTypes import Espresso, Cappucino, LatteMacchiato
+from code.DrinkTypes import Espresso, Cappuccino, LatteMacchiato
 
 
 class TestDrinkTypes(TestCase):
@@ -17,21 +17,21 @@ class TestDrinkTypes(TestCase):
         self.assertFalse(self.espresso.make_espresso())
 
     # ===================================================================================
-    def test_make_cappucino_1(self):
-        self.cappucino = Cappucino(coffee_strength=3)
-        self.assertTrue(self.cappucino.make_cappucino())
+    def test_make_cappuccino_1(self):
+        self.cappuccino = Cappuccino(coffee_strength=3)
+        self.assertTrue(self.cappuccino.make_cappuccino())
 
-    def test_make_cappucino_2(self):
-        self.cappucino = Cappucino(coffee_strength=-3)
-        self.assertFalse(self.cappucino.make_cappucino())
+    def test_make_cappuccino_2(self):
+        self.cappuccino = Cappuccino(coffee_strength=-3)
+        self.assertFalse(self.cappuccino.make_cappuccino())
 
     # ===================================================================================
     def test_make_latte_macchiato_1(self):
-        self.latteMacchiato = LatteMacchiato(coffee_strength=3)
-        self.assertTrue(self.latteMacchiato.make_latte_macchiato())
+        self.latte_macchiato = LatteMacchiato(coffee_strength=3)
+        self.assertTrue(self.latte_macchiato.make_latte_macchiato())
 
     def test_make_latte_macchiato_2(self):
-        self.latteMacchiato = LatteMacchiato(coffee_strength=-3)
-        self.assertFalse(self.latteMacchiato.make_latte_macchiato())
+        self.latte_macchiato = LatteMacchiato(coffee_strength=-3)
+        self.assertFalse(self.latte_macchiato.make_latte_macchiato())
 
     # ===================================================================================

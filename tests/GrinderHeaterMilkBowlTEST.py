@@ -51,20 +51,20 @@ class TestCoffeeBrewingBowl(unittest.TestCase):
 
 class TestMilkFrother(unittest.TestCase):
     def test_pour_milk_1(self):
-        self.milkFrother = MilkFrother(how_many_milk=100)
-        self.assertTrue(self.milkFrother.pour_milk(steamed=False))
+        self.milk_frother = MilkFrother(how_many_milk=100)
+        self.assertTrue(self.milk_frother.pour_milk(steamed=False))
 
     def test_pour_milk_2(self):
-        self.milkFrother = MilkFrother(how_many_milk=-400)
-        self.assertFalse(self.milkFrother.pour_milk(steamed=False))
+        self.milk_frother = MilkFrother(how_many_milk=-400)
+        self.assertFalse(self.milk_frother.pour_milk(steamed=False))
 
     def test_pour_milk_3(self):
-        self.milkFrother = MilkFrother(how_many_milk=100)
-        self.assertTrue(self.milkFrother.pour_milk(steamed=True))
+        self.milk_frother = MilkFrother(how_many_milk=100)
+        self.assertTrue(self.milk_frother.pour_milk(steamed=True))
 
     def test_pour_milk_4(self):
-        self.milkFrother = MilkFrother(how_many_milk=-110)
-        self.assertFalse(self.milkFrother.pour_milk(steamed=True))
+        self.milk_frother = MilkFrother(how_many_milk=-110)
+        self.assertFalse(self.milk_frother.pour_milk(steamed=True))
 
 
 if __name__ == '__main__':

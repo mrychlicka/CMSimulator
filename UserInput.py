@@ -14,7 +14,7 @@ class UserInput:
         """
         for i in xrange(2):
             drink_number = raw_input("Pick coffe drink or turn off coffee machine - type \'1\' for espresso, "
-                                     "\'2\' - cappucino, \'3\' - latte macchiato or "
+                                     "\'2\' - cappuccino, \'3\' - latte macchiato or "
                                      "\'exit\' to turn off coffee machine: ")
 
             drinks = {"1": "espresso",

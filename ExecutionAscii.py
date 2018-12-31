@@ -5,7 +5,7 @@ from console_progressbar import ProgressBar
 from ascii_art import CoffeeDrinksAscii
 from UserInput import UserInput
 from Containers import CoffeeContainer, WaterContainer, MilkContainer, GroundsContainer
-from DrinkTypes import Espresso, Cappucino, LatteMacchiato
+from DrinkTypes import Espresso, Cappuccino, LatteMacchiato
 from HidePrint import HiddenPrints
 
 coffee_available = 7
@@ -62,15 +62,15 @@ while True:
             coffeeDrinksAscii.print_espresso()
 
     if drink_type == "capuccino":
-        cappucino = Cappucino(coffee_strength=coffee_strength)
+        cappuccino = Cappuccino(coffee_strength=coffee_strength)
         with HiddenPrints():
-            made_cappucino = cappucino.make_cappucino()
-        if made_cappucino:
+            made_cappuccino = cappuccino.make_cappuccino()
+        if made_cappuccino:
             coffeeDrinksAscii.print_cappuccino()
 
     if drink_type == "latte macchiato":
-        latteMacchiato = LatteMacchiato(coffee_strength=coffee_strength)
+        latte_macchiato = LatteMacchiato(coffee_strength=coffee_strength)
         with HiddenPrints():
-            made_latte_macchiato = latteMacchiato.make_latte_macchiato()
+            made_latte_macchiato = latte_macchiato.make_latte_macchiato()
         if made_latte_macchiato:
             coffeeDrinksAscii.print_latte_macchiato()

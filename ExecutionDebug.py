@@ -2,7 +2,7 @@
 from ascii_art import CoffeeDrinksAscii
 from UserInput import UserInput
 from Containers import CoffeeContainer, WaterContainer, MilkContainer, GroundsContainer
-from DrinkTypes import Espresso, Cappucino, LatteMacchiato
+from DrinkTypes import Espresso, Cappuccino, LatteMacchiato
 
 coffee_available = 7
 water_available = 300
@@ -31,9 +31,9 @@ while True:
         espresso.make_espresso()
 
     if drink_type == "capuccino":
-        cappucino = Cappucino(coffee_strength=coffee_strength)
-        cappucino.make_cappucino()
+        cappuccino = Cappuccino(coffee_strength=coffee_strength)
+        cappuccino.make_cappuccino()
 
     if drink_type == "latte macchiato":
-        latteMacchiato = LatteMacchiato(coffee_strength=coffee_strength)
-        latteMacchiato.make_latte_macchiato()
+        latte_macchiato = LatteMacchiato(coffee_strength=coffee_strength)
+        latte_macchiato.make_latte_macchiato()
