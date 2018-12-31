@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+from console_progressbar import ProgressBar
 from ascii_art import CoffeeDrinksAscii
 
 
@@ -10,6 +11,24 @@ class Container:
         self.max_ingredient_amount_in_container = None
         self.ingredient = "ingredient"
         self.coffeeDrinksAscii = CoffeeDrinksAscii()
+
+    def how_many_ingredient_in_container(self):
+        """
+        Show container state
+        Returns amount of ingredient in container
+        """
+        return self.ingredient_available
+
+    def print_container_state_progres_bar(self, ingredient_available):
+        """
+        Show container state as percentage of max capacity of container with state bar
+        @ingredient_available: amount of ingredient in container
+        Returns None
+        """
+        max_ingredient = self.max_ingredient_amount_in_container
+        how_many_ingredient = ingredient_available * 100 / max_ingredient
+        pb1 = ProgressBar(total=100.0, prefix="%s state" % self.ingredient, suffix="...container capacity", fill="|", decimals=0, length=30, zfill='-')
+        pb1.print_progress_bar(how_many_ingredient)
 
     def _is_enough_ingredient(self, needed_ingredient_amount, hide_debug_prints=False):
         """
@@ -87,7 +106,7 @@ class CoffeeContainer(Container):
 
     def __init__(self, ingredient_available):
         Container.__init__(self, ingredient_available)
-        self.max_ingredient_amount_in_container = 300
+        self.max_ingredient_amount_in_container = 30
         self.ingredient = "coffee"
 
 
@@ -96,7 +115,7 @@ class WaterContainer(Container):
 
     def __init__(self, ingredient_available):
         Container.__init__(self, ingredient_available)
-        self.max_ingredient_amount_in_container = 200
+        self.max_ingredient_amount_in_container = 500
         self.ingredient = "water"
 
 
