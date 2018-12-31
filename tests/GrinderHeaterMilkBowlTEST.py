@@ -6,15 +6,15 @@ from code.GrinderHeaterMilkBowl import CoffeeGrinder, Heater, CoffeeBrewingBowl,
 class TestGrinder(unittest.TestCase):
     def test_grind_coffee_1(self):
         coffeeGrinder = CoffeeGrinder(how_many_coffee=4)
-        self.assertTrue(coffeeGrinder.grid_coffee())
+        self.assertTrue(coffeeGrinder.grind_coffee())
 
     def test_grind_coffee_2(self):
         coffeeGrinder = CoffeeGrinder(how_many_coffee=0)
-        self.assertFalse(coffeeGrinder.grid_coffee())
+        self.assertFalse(coffeeGrinder.grind_coffee())
 
     def test_grind_coffee_3(self):
         coffeeGrinder = CoffeeGrinder(how_many_coffee=-2)
-        self.assertFalse(coffeeGrinder.grid_coffee())
+        self.assertFalse(coffeeGrinder.grind_coffee())
 
 
 class TestHeater(unittest.TestCase):
@@ -52,19 +52,19 @@ class TestCoffeeBrewingBowl(unittest.TestCase):
 class TestMilkFrother(unittest.TestCase):
     def test_pour_milk_1(self):
         self.milkFrother = MilkFrother(how_many_milk=100)
-        self.assertTrue(self.milkFrother.pourMilk(steamed=False))
+        self.assertTrue(self.milkFrother.pour_milk(steamed=False))
 
     def test_pour_milk_2(self):
         self.milkFrother = MilkFrother(how_many_milk=-400)
-        self.assertFalse(self.milkFrother.pourMilk(steamed=False))
+        self.assertFalse(self.milkFrother.pour_milk(steamed=False))
 
     def test_pour_milk_3(self):
         self.milkFrother = MilkFrother(how_many_milk=100)
-        self.assertTrue(self.milkFrother.pourMilk(steamed=True))
+        self.assertTrue(self.milkFrother.pour_milk(steamed=True))
 
     def test_pour_milk_4(self):
         self.milkFrother = MilkFrother(how_many_milk=-110)
-        self.assertFalse(self.milkFrother.pourMilk(steamed=True))
+        self.assertFalse(self.milkFrother.pour_milk(steamed=True))
 
 
 if __name__ == '__main__':

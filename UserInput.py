@@ -3,8 +3,15 @@ from pyfiglet import figlet_format
 
 
 class UserInput:
+    """ Class represents user input """
 
     def get_coffee_type(self, hideASCII=False, hideDebugPrint=False):
+        """
+        Take user choice - which coffee drink wants to be done
+        @hideASCII: boolean - if True ascii drawings is not shown, if False it is
+        @hideDebugPrint: boolean - if True printed text is not shown, if False it is
+        Returns typed coffee type, False if user input is wrong
+        """
         for i in xrange(2):
             drink_number = raw_input("Pick coffe drink or turn off coffee machine - type \'1\' for espresso, "
                                      "\'2\' - cappucino, \'3\' - latte macchiato or "
@@ -33,6 +40,10 @@ class UserInput:
         return False
 
     def get_coffee_strength(self):
+        """
+        Take user choice - coffee strength
+        Returns typed coffee strength, False if user input is wrong
+        """
         for i in xrange(2):
             coffee_strength_number = raw_input("Pick coffee strength - type \' 1\' if you want weak coffee, "
                                                "\'2\' for normal or \'3\' for strong coffee: ")

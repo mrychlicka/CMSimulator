@@ -3,6 +3,7 @@ from ascii_art import CoffeeDrinksAscii
 
 
 class Container:
+    """ Class represents base functionality of containers"""
 
     def __init__(self, ingredient_available):
         self.ingredient_available = ingredient_available
@@ -11,6 +12,12 @@ class Container:
         self.coffeeDrinksAscii = CoffeeDrinksAscii()
 
     def _is_enough_ingredient(self, needed_ingredient_amount, hide_debug_prints=False):
+        """
+        Check if in container is enough of given ingredient
+        @needed_ingredient_amount: int - how many ingredient is needed
+        @hide_debug_prints: boolean - if True printed text is not shown, if False it is
+        Returns True if in container is enough given ingredient, False otherwise
+        """
         if not self.ingredient_available >= 0 or not needed_ingredient_amount >= 0:
             if not hide_debug_prints:
                 print "[!!!] Number of available and needed %s cannot be negative" % self.ingredient
@@ -24,6 +31,11 @@ class Container:
         return True
 
     def _refill_container(self, hide_debug_prints=False):
+        """
+        Fill or empty container
+        @hide_debug_prints: boolean - if True printed text is not shown, if False it is:
+        Returns True if container filled successfully, False otherwise
+        """
         refilling = raw_input("Wrong %s amount. Please type \'y\' to refill: " % self.ingredient)
         if not refilling == "y":
             if not hide_debug_prints:
@@ -35,6 +47,10 @@ class Container:
         return self.ingredient_available
 
     def _draw_empty_container(self):
+        """
+        Print ascii drawing of container to refill
+        Returns None
+        """
         if self.ingredient == "coffee":
             self.coffeeDrinksAscii.print_coffee_beans()
         if self.ingredient == "water":
@@ -45,6 +61,13 @@ class Container:
             self.coffeeDrinksAscii.print_trashcan()
 
     def take_needed_ingredient_amount(self, needed_ingredient_amount, hide_drawings=False, hide_debug_prints=False):
+        """
+        Update amount of available ingredient in container
+        @needed_ingredient_amount: int - how many ingredient is needed
+        @hide_drawings: boolean - if True ascii drawing is not shown, if False it is
+        @hide_debug_prints: boolean - if True printed text is not shown, if False it is
+        Returns updated amount of ingredient in container
+        """
         if not self._is_enough_ingredient(
                 needed_ingredient_amount=needed_ingredient_amount, hide_debug_prints=hide_debug_prints):
             if not hide_drawings:
@@ -60,6 +83,7 @@ class Container:
 
 
 class CoffeeContainer(Container):
+    """ Class represents coffee container """
 
     def __init__(self, ingredient_available):
         Container.__init__(self, ingredient_available)
@@ -68,6 +92,7 @@ class CoffeeContainer(Container):
 
 
 class WaterContainer(Container):
+    """ Class represents water container """
 
     def __init__(self, ingredient_available):
         Container.__init__(self, ingredient_available)
@@ -76,6 +101,7 @@ class WaterContainer(Container):
 
 
 class MilkContainer(Container):
+    """ Class represents milk container """
 
     def __init__(self, ingredient_available):
         Container.__init__(self, ingredient_available)
@@ -84,6 +110,7 @@ class MilkContainer(Container):
 
 
 class GroundsContainer(Container):
+    """ Class represents container for grounds"""
 
     def __init__(self, ingredient_available):
         Container.__init__(self, ingredient_available)
