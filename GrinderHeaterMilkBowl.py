@@ -1,4 +1,3 @@
-from Containers import Container, WaterContainer, CoffeeContainer, MilkContainer, GroundsContainer
 import random
 
 
@@ -6,7 +5,7 @@ class CoffeeGrinder:
     def __init__(self, how_many_coffee):
         self.how_many_coffee = how_many_coffee
 
-    def grid_coffee(self):  # TODO: ta metoda wyglada bardzo prymitywnie
+    def grid_coffee(self):
         coffee_ground = False
         if not self.how_many_coffee <= 0:
             for i in xrange(self.how_many_coffee):

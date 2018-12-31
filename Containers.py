@@ -28,7 +28,7 @@ class Container:
         if not refilling == "y":
             if not hideDebugPrints:
                 print "[!!!] %s container is not ready. Cannot make coffee" % self.ingredient
-            return False
+            exit(0)
         self.ingredient_available = self.max_ingredient_amount_in_container
         if not hideDebugPrints:
             print "%s container is ready for making coffee" % self.ingredient
@@ -45,7 +45,8 @@ class Container:
             self.coffeeDrinksAscii.print_trashcan()
 
     def take_needed_ingredient_amount(self, needed_ingredient_amount, hideDrawings=False, hideDebugPrints=False):
-        if not self._is_enough_ingredient(needed_ingredient_amount=needed_ingredient_amount, hideDebugPrints=hideDebugPrints):
+        if not self._is_enough_ingredient(
+                needed_ingredient_amount=needed_ingredient_amount, hideDebugPrints=hideDebugPrints):
             if not hideDrawings:
                 self._draw_empty_container()
             self.ingredient_available = self._refill_container(hideDebugPrints=hideDebugPrints)

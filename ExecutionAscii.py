@@ -2,8 +2,6 @@
 import time
 
 from console_progressbar import ProgressBar
-
-
 from ascii_art import CoffeeDrinksAscii
 from UserInput import UserInput
 from Containers import CoffeeContainer, WaterContainer, MilkContainer, GroundsContainer
@@ -29,29 +27,25 @@ while True:
 
     pb1 = ProgressBar(total=100, prefix="Containers preparing", suffix="Complete", decimals=3, length=50, zfill='-')
     sleepTime = 0.7
-    # with HiddenPrints():
-    coffeeContainer.take_needed_ingredient_amount(needed_ingredient_amount=3, hideDebugPrints=True)  # TODO: zrobic parametr - ukryj obrazki, i ukryj printy debugujace
+
+    coffeeContainer.take_needed_ingredient_amount(needed_ingredient_amount=3, hideDebugPrints=True)
     pb1.print_progress_bar(20)
     time.sleep(sleepTime)
 
-    # with HiddenPrints():
     waterContainer.take_needed_ingredient_amount(needed_ingredient_amount=100, hideDrawings=False, hideDebugPrints=True)
     pb1.print_progress_bar(40)
     time.sleep(sleepTime)
 
-    # with HiddenPrints():
     milkContainer.take_needed_ingredient_amount(needed_ingredient_amount=100, hideDrawings=False, hideDebugPrints=True)
     pb1.print_progress_bar(60)
     time.sleep(sleepTime)
 
-    # with HiddenPrints():
     groundsContainer.take_needed_ingredient_amount(needed_ingredient_amount=1, hideDrawings=False, hideDebugPrints=True)
     pb1.print_progress_bar(80)
     time.sleep(sleepTime)
 
     pb1.print_progress_bar(100)
     coffeeDrinksAscii.print_coffee_machine()
-
 
     pb1 = ProgressBar(total=100, prefix="Coffee drink preparing", suffix="Complete", decimals=3, length=50, zfill='-')
     count = 0

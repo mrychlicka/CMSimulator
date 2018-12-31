@@ -1,12 +1,14 @@
 from termcolor import cprint
 from pyfiglet import figlet_format
 
+
 class UserInput:
 
     def get_coffee_type(self, hideASCII=False, hideDebugPrint=False):
         for i in xrange(2):
-            drink_number = raw_input("Pick coffe drink or turn off coffee machine - type \'1\' if you want espresso, "
-                                     "\'2\' for cappucino, \'3\' for latte macchiato or \'exit\' to turn off coffee machine: ")
+            drink_number = raw_input("Pick coffe drink or turn off coffee machine - type \'1\' for espresso, "
+                                     "\'2\' - cappucino, \'3\' - latte macchiato or "
+                                     "\'exit\' to turn off coffee machine: ")
             if drink_number == "1":
                 drink_type = "espresso"
                 return drink_type
