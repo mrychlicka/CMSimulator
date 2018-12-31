@@ -23,7 +23,10 @@ coffeeDrinksAscii = CoffeeDrinksAscii()
 while True:
 
     print " ======= Containers state ======= "
-    containers = {coffeeContainer: coffee_available, waterContainer: water_available, milkContainer: milk_available, groundsContainer: grounds_space}
+    containers = {coffeeContainer: coffeeContainer.how_many_ingredient_in_container(),
+                  waterContainer: waterContainer.how_many_ingredient_in_container(),
+                  milkContainer: milkContainer.how_many_ingredient_in_container(),
+                  groundsContainer: groundsContainer.how_many_ingredient_in_container()}
 
     for container in containers:
         container.print_container_state_progres_bar(ingredient_available=containers[container])

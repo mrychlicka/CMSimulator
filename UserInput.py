@@ -13,7 +13,7 @@ class UserInput:
         Returns typed coffee type, False if user input is wrong
         """
         for i in xrange(2):
-            drink_number = raw_input("Pick coffe drink or turn off coffee machine - type \'1\' for espresso, "
+            drink_number = raw_input("Pick coffe drink or turn off coffee machine - type \'1\' for espresso, \n"
                                      "\'2\' - cappuccino, \'3\' - latte macchiato or "
                                      "\'exit\' to turn off coffee machine: ")
 
@@ -37,6 +37,7 @@ class UserInput:
                     print "Wrong input. Try again"
                 else:
                     print "Wrong input. Coffee drink cannot be done"
+                    exit(0)
         return False
 
     def get_coffee_strength(self):
@@ -61,4 +62,5 @@ class UserInput:
                     print "Wrong input. Try again"
                 else:
                     print "Wrong input. Coffee drink cannot be made"
+                    exit(0)
         return False

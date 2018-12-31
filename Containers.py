@@ -27,7 +27,7 @@ class Container:
         """
         max_ingredient = self.max_ingredient_amount_in_container
         how_many_ingredient = ingredient_available * 100 / max_ingredient
-        pb1 = ProgressBar(total=100.0, prefix="%s state" % self.ingredient, suffix="...container capacity", fill="|", decimals=0, length=30, zfill='-')
+        pb1 = ProgressBar(total=100.0, prefix="%s state" % self.ingredient, suffix="in %s container capacity" % self.ingredient, fill="|", decimals=0, length=30, zfill='-')
         pb1.print_progress_bar(how_many_ingredient)
 
     def _is_enough_ingredient(self, needed_ingredient_amount, hide_debug_prints=False):
