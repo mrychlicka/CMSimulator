@@ -8,45 +8,45 @@ class TestUserInput(TestCase):
     def testGetCoffeType1(self):
         userInput = UserInput()
         with patch("__builtin__.raw_input", return_value="1"):
-            assert userInput.getCoffeType() == "espresso"
+            assert userInput.get_coffee_type() == "espresso"
 
     def testGetCoffeType2(self):
         userInput = UserInput()
         with patch("__builtin__.raw_input", return_value="2"):
-            assert userInput.getCoffeType() == "capuccino"
+            assert userInput.get_coffee_type() == "capuccino"
 
     def testGetCoffeType3(self):
         userInput = UserInput()
         with patch("__builtin__.raw_input", return_value="3"):
-            assert userInput.getCoffeType() == "latte macchiato"
+            assert userInput.get_coffee_type() == "latte macchiato"
 
     def testGetCoffeType4(self):
         userInput = UserInput()
         with patch("__builtin__.raw_input", return_value="4"):
-            assert not userInput.getCoffeType()
+            assert not userInput.get_coffee_type()
 
     def testGetCoffeType5(self):
         userInput = UserInput()
         with patch("__builtin__.raw_input", return_value="foo"):
-            assert not userInput.getCoffeType()
+            assert not userInput.get_coffee_type()
     # ===================================================================================
 
     def TestGetCoffeeStrength1(self):
         userInput = UserInput()
         with patch("__builtin__.raw_input", return_value="1"):
-            assert userInput.getCoffeeStrength() == 3
+            assert userInput.get_coffee_strength() == 3
 
     def TestGetCoffeeStrength2(self):
         userInput = UserInput()
         with patch("__builtin__.raw_input", return_value="2"):
-            assert userInput.getCoffeeStrength() == 5
+            assert userInput.get_coffee_strength() == 5
 
     def TestGetCoffeeStrength3(self):
         userInput = UserInput()
         with patch("__builtin__.raw_input", return_value="3"):
-            assert userInput.getCoffeeStrength() == 7
+            assert userInput.get_coffee_strength() == 7
 
     def TestGetCoffeeStrength4(self):
         userInput = UserInput()
         with patch("__builtin__.raw_input", return_value="foo"):
-            assert not userInput.getCoffeeStrength()
+            assert not userInput.get_coffee_strength()

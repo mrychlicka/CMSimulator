@@ -37,7 +37,7 @@ class TestCoffeeContainer(TestCase):
             self.assertNotEqual(self.coffeeContainer._refill_container(), 23)
 
     # ===================================================================================
-    def test_take_needed_amount_1(self):  # TODO: sekcja do poprawy
+    def test_take_needed_amount_1(self):
         self.coffeeContainer = CoffeeContainer(ingredient_available=20)
         with patch("__builtin__.raw_input", return_value="y"):
             self.assertEqual(self.coffeeContainer.take_needed_ingredient_amount(needed_ingredient_amount=20), 0)

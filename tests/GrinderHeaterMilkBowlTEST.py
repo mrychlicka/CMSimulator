@@ -60,7 +60,7 @@ class TestMilkFrother(unittest.TestCase):
 
     def test_pour_milk_3(self):
         self.milkFrother = MilkFrother(howManyMilk=100)
-        self.assertTrue(self.milkFrother.pourMilk(steamed=True))  # TODO: tu cos nie smiga
+        self.assertTrue(self.milkFrother.pourMilk(steamed=True))
 
     def test_pour_milk_4(self):
         self.milkFrother = MilkFrother(howManyMilk=-110)
