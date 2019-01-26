@@ -1,6 +1,6 @@
 from unittest import TestCase
 from mock import patch
-from code.UserInput import UserInput
+from UserInput import UserInput
 
 
 class TestUserInput(TestCase):

@@ -1,6 +1,6 @@
 import unittest
 
-from code.GrinderHeaterMilkBowl import CoffeeGrinder, Heater, CoffeeBrewingBowl, MilkFrother
+from GrinderHeaterMilkBowl import CoffeeGrinder, Heater, CoffeeBrewingBowl, MilkFrother
 
 
 class TestGrinder(unittest.TestCase):

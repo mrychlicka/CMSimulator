@@ -6,7 +6,7 @@ class Espresso:
 
     def __init__(self, coffee_strength):
         self.coffee = coffee_strength
-        self.woda = 100
+        self.water = 100
         self.coffeeGrinder = CoffeeGrinder(how_many_coffee=self.coffee)
         self.heater = Heater()
 

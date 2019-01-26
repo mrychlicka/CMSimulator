@@ -1,4 +1,4 @@
-from code.Containers import CoffeeContainer
+from Containers import CoffeeContainer
 from unittest import TestCase
 from mock import patch
 
