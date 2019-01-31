@@ -26,12 +26,9 @@ I. PREREQUISITES
 
 II. INSTALLING
 
-  To run project there is needed to install several packages from pip: 
-  1. time
-  2. console_progressbar
-  3. termcolor
-  4. pyfiglet
-  5. mock
+  To run project there is needed to install several packages from pip given in requirements.txt.
+  run pip install -r requirements.txt to install needed packages.
+
   
 III. RUNNING 
 To run program, run Main.py file
