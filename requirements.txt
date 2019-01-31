@@ -1,0 +1,4 @@
+console-progressbar==1.1.1
+termcolor==1.1.0
+pyfiglet==0.8.post0
+mock==2.0.0
