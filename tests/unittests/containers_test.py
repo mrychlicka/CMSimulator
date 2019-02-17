@@ -31,24 +31,24 @@ class TestCoffeeContainer(TestCase):
 
             self.coffeeContainer = CoffeeContainer(ingredient_available=self.true_ingredient_available[0])
             self.coffeeContainer.max_ingredient_amount_in_container = self.max_ingredients[i]
-            with patch("__builtin__.raw_input", return_value="y"):
+            with patch("__builtin__.input", return_value="y"):
                 self.assertEqual(self.coffeeContainer._refill_container(), self.max_ingredients[i])
 
             self.coffeeContainer = CoffeeContainer(ingredient_available=self.false_ingredient_available[0])
             self.coffeeContainer.max_ingredient_amount_in_container = self.max_ingredients[i]
-            with patch("__builtin__.raw_input", return_value="y"):
+            with patch("__builtin__.input", return_value="y"):
                 self.assertNotEqual(self.coffeeContainer._refill_container(), self.max_ingredients[i])
 
     def test_take_needed_amount(self):
         self.coffeeContainer = CoffeeContainer(ingredient_available=20)
-        with patch("__builtin__.raw_input", return_value="y"):
+        with patch("__builtin__.input", return_value="y"):
             self.assertEqual(self.coffeeContainer.take_needed_ingredient_amount(needed_ingredient_amount=20), 0)
 
         self.coffeeContainer = CoffeeContainer(ingredient_available=40)
-        with patch("__builtin__.raw_input", return_value="foo"):
+        with patch("__builtin__.input", return_value="foo"):
             self.assertEqual(self.coffeeContainer.take_needed_ingredient_amount(needed_ingredient_amount=5), 35)
 
         self.coffeeContainer = CoffeeContainer(ingredient_available=30)
-        with patch("__builtin__.raw_input", return_value="4"):
+        with patch("__builtin__.input", return_value="4"):
             self.assertEqual(self.coffeeContainer.take_needed_ingredient_amount(needed_ingredient_amount=20), 10)
 
