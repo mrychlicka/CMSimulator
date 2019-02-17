@@ -39,14 +39,14 @@ class Container:
         """
         if not self.ingredient_available >= 0 or not needed_ingredient_amount >= 0:
             if not hide_debug_prints:
-                print "[!!!] Number of available and needed %s cannot be negative" % self.ingredient
+                print("[!!!] Number of available and needed %s cannot be negative" % self.ingredient)
             return False
         if not self.ingredient_available >= needed_ingredient_amount:
             if not hide_debug_prints:
-                print "[!!!] Not enough %s to make a coffe drink" % self.ingredient
+                print("[!!!] Not enough %s to make a coffe drink" % self.ingredient)
             return False
         if not hide_debug_prints:
-            print "Enough %s to make a coffe drink" % self.ingredient
+            print("Enough %s to make a coffe drink" % self.ingredient)
         return True
 
     def _refill_container(self, hide_debug_prints=False):
@@ -55,14 +55,14 @@ class Container:
         @hide_debug_prints: boolean - if True printed text is not shown, if False it is:
         Returns True if container filled successfully, False otherwise
         """
-        refilling = raw_input("Wrong %s amount. Please type \'y\' to refill: " % self.ingredient)
+        refilling = input("Wrong %s amount. Please type \'y\' to refill: " % self.ingredient)
         if not refilling == "y":
             if not hide_debug_prints:
-                print "[!!!] %s container is not ready. Cannot make coffee" % self.ingredient
+                print("[!!!] %s container is not ready. Cannot make coffee" % self.ingredient)
             exit(0)
         self.ingredient_available = self.max_ingredient_amount_in_container
         if not hide_debug_prints:
-            print "%s container is ready for making coffee" % self.ingredient
+            print("%s container is ready for making coffee" % self.ingredient)
         return self.ingredient_available
 
     def _draw_empty_container(self):
@@ -97,7 +97,7 @@ class Container:
         else:
             self.ingredient_available -= needed_ingredient_amount
         if not hide_debug_prints:
-            print "Needed %s amount successfully taken" % self.ingredient
+            print("Needed %s amount successfully taken" % self.ingredient)
         return self.ingredient_available
 
 

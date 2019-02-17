@@ -18,18 +18,18 @@ coffeeDrinksAscii = CoffeeDrinksAscii()
 
 while True:
 
-    print " === Containers state ==="
-    print "%s grams of coffee beans in coffee grinder" % coffeeContainer.how_many_ingredient_in_container()
-    print "%s ml of water in water container" % waterContainer.how_many_ingredient_in_container()
-    print "%s ml of milk in milk container" % milkContainer.how_many_ingredient_in_container()
-    print "Space for %s coffee grounds" % groundsContainer.how_many_ingredient_in_container()
-    print " ========================"
+    print(" === Containers state ===")
+    print("%s grams of coffee beans in coffee grinder" % coffeeContainer.how_many_ingredient_in_container())
+    print("%s ml of water in water container" % waterContainer.how_many_ingredient_in_container())
+    print("%s ml of milk in milk container" % milkContainer.how_many_ingredient_in_container())
+    print("Space for %s coffee grounds" % groundsContainer.how_many_ingredient_in_container())
+    print(" ========================")
 
     userInput = UserInput()
     drink_type = userInput.get_coffee_type()
     coffee_strength = userInput.get_coffee_strength()
 
-    print " ======= Containers preparing ======= "
+    print(" ======= Containers preparing ======= ")
     coffeeContainer.take_needed_ingredient_amount(needed_ingredient_amount=3, hide_drawings=True)
     waterContainer.take_needed_ingredient_amount(needed_ingredient_amount=100, hide_drawings=True)
     milkContainer.take_needed_ingredient_amount(needed_ingredient_amount=100, hide_drawings=True)
