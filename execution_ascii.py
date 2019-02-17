@@ -3,10 +3,10 @@ import time
 
 from console_progressbar import ProgressBar
 from ascii_art import CoffeeDrinksAscii
-from UserInput import UserInput
-from Containers import CoffeeContainer, WaterContainer, MilkContainer, GroundsContainer
-from DrinkTypes import Espresso, Cappuccino, LatteMacchiato
-from HidePrint import HiddenPrints
+from user_input import UserInput
+from containers import CoffeeContainer, WaterContainer, MilkContainer, GroundsContainer
+from drink_types import Espresso, Cappuccino, LatteMacchiato
+from hide_print import HiddenPrints
 
 coffee_available = 3
 water_available = 500

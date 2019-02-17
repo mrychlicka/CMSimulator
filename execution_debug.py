@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 from ascii_art import CoffeeDrinksAscii
-from UserInput import UserInput
-from Containers import CoffeeContainer, WaterContainer, MilkContainer, GroundsContainer
-from DrinkTypes import Espresso, Cappuccino, LatteMacchiato
+from user_input import UserInput
+from containers import CoffeeContainer, WaterContainer, MilkContainer, GroundsContainer
+from drink_types import Espresso, Cappuccino, LatteMacchiato
 
 coffee_available = 3
 water_available = 500
