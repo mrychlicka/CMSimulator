@@ -1,5 +1,5 @@
 from unittest import TestCase
-from DrinkTypes import Espresso, Cappuccino, LatteMacchiato
+from drink_types import Espresso, Cappuccino, LatteMacchiato
 
 
 class TestDrinkTypes(TestCase):
