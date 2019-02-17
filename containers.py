@@ -1,4 +1,6 @@
 # -*- coding: utf-8 -*-
+import logging
+
 from console_progressbar import ProgressBar
 from ascii_art import CoffeeDrinksAscii
 
@@ -58,11 +60,11 @@ class Container:
         refilling = input("Wrong %s amount. Please type \'y\' to refill: " % self.ingredient)
         if not refilling == "y":
             if not hide_debug_prints:
-                print("[!!!] %s container is not ready. Cannot make coffee" % self.ingredient)
+                logging.debug("[!!!] %s container is not ready. Cannot make coffee" % self.ingredient)
             exit(0)
         self.ingredient_available = self.max_ingredient_amount_in_container
         if not hide_debug_prints:
-            print("%s container is ready for making coffee" % self.ingredient)
+            logging.debug("%s container is ready for making coffee" % self.ingredient)
         return self.ingredient_available
 
     def _draw_empty_container(self):
@@ -97,7 +99,7 @@ class Container:
         else:
             self.ingredient_available -= needed_ingredient_amount
         if not hide_debug_prints:
-            print("Needed %s amount successfully taken" % self.ingredient)
+            logging.debug("Needed %s amount successfully taken" % self.ingredient)
         return self.ingredient_available
 
 

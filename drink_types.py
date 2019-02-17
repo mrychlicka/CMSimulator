@@ -1,3 +1,5 @@
+import logging
+
 from grinder_heater_milk_bowl import CoffeeGrinder, Heater, CoffeeBrewingBowl, MilkFrother
 
 
@@ -20,7 +22,7 @@ class Espresso:
         water_heated = self.heater.heat_water()
         brewed_coffee = CoffeeBrewingBowl(coffee_ground=coffee_ground, water_heated=water_heated).brew_coffee()
         if brewed_coffee:
-            print("Espresso is ready")
+            logging.info("Espresso is ready")
             espressoInCup = True
             return espressoInCup
         print("Making espresso failed")

@@ -1,3 +1,5 @@
+import logging
+
 from termcolor import cprint
 from pyfiglet import figlet_format
 
@@ -30,13 +32,13 @@ class UserInput:
                 if not hideASCII:
                     cprint(figlet_format("TURNED OFF", font="standard"), "white")
                 if not hideDebugPrint:
-                    print("Coffee machine turned off")
+                    logging.info("Coffee machine turned off")
                 exit(0)
             else:
                 if i == 0:
-                    print("Wrong input. Try again")
+                    logging.info("Wrong input. Try again")
                 else:
-                    print("Wrong input. Coffee drink cannot be done")
+                    logging.info("Wrong input. Coffee drink cannot be done")
                     exit(0)
         return False
 
@@ -45,7 +47,7 @@ class UserInput:
         Take user choice - coffee strength
         Returns typed coffee strength, False if user input is wrong
         """
-        for i in xrange(2):
+        for i in range(2):
             coffee_strength_number = input("Pick coffee strength - type \' 1\' if you want weak coffee, "
                                                "\'2\' for normal or \'3\' for strong coffee: ")
             if coffee_strength_number == "1":
@@ -59,8 +61,8 @@ class UserInput:
                 return coffee_strength
             else:
                 if i == 0:
-                    print("Wrong input. Try again")
+                    logging.info("Wrong input. Try again")
                 else:
-                    print("Wrong input. Coffee drink cannot be made")
+                    logging.info("Wrong input. Coffee drink cannot be made")
                     exit(0)
         return False

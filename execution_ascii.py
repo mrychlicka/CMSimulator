@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 import time
+import logging
 
 from console_progressbar import ProgressBar
 from ascii_art import CoffeeDrinksAscii
@@ -22,7 +23,7 @@ coffeeDrinksAscii = CoffeeDrinksAscii()
 
 while True:
 
-    print(" ======= Containers state ======= ")
+    logging.info(" ======= Containers state ======= ")
     containers = {coffeeContainer: coffeeContainer.how_many_ingredient_in_container(),
                   waterContainer: waterContainer.how_many_ingredient_in_container(),
                   milkContainer: milkContainer.how_many_ingredient_in_container(),

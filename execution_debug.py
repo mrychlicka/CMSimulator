@@ -1,10 +1,13 @@
 # -*- coding: utf-8 -*-
+import logging
+
 from ascii_art import CoffeeDrinksAscii
 from user_input import UserInput
 from containers import CoffeeContainer, WaterContainer, MilkContainer, GroundsContainer
 from drink_types import Espresso, Cappuccino, LatteMacchiato
 
-coffee_available = 3
+
+coffee_available = 3  # TODO: uppercase - as a static values
 water_available = 500
 milk_available = 100
 grounds_space = 4
@@ -18,7 +21,7 @@ coffeeDrinksAscii = CoffeeDrinksAscii()
 
 while True:
 
-    print(" === Containers state ===")
+    logging.info(" === Containers state ===")
     print("%s grams of coffee beans in coffee grinder" % coffeeContainer.how_many_ingredient_in_container())
     print("%s ml of water in water container" % waterContainer.how_many_ingredient_in_container())
     print("%s ml of milk in milk container" % milkContainer.how_many_ingredient_in_container())
@@ -29,7 +32,7 @@ while True:
     drink_type = userInput.get_coffee_type()
     coffee_strength = userInput.get_coffee_strength()
 
-    print(" ======= Containers preparing ======= ")
+    logging.info(" ======= Containers preparing ======= ")
     coffeeContainer.take_needed_ingredient_amount(needed_ingredient_amount=3, hide_drawings=True)
     waterContainer.take_needed_ingredient_amount(needed_ingredient_amount=100, hide_drawings=True)
     milkContainer.take_needed_ingredient_amount(needed_ingredient_amount=100, hide_drawings=True)
