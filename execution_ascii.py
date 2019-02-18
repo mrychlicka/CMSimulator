@@ -7,7 +7,6 @@ from ascii_art import CoffeeDrinksAscii
 from user_input import UserInput
 from containers import CoffeeContainer, WaterContainer, MilkContainer, GroundsContainer
 from drink_types import Espresso, Cappuccino, LatteMacchiato
-from hide_print import HiddenPrints
 
 coffee_available = 3
 water_available = 500
@@ -20,6 +19,8 @@ milkContainer = MilkContainer(milk_available)
 groundsContainer = GroundsContainer(grounds_space)
 
 coffeeDrinksAscii = CoffeeDrinksAscii()
+
+logging.Logger.disabled = True
 
 while True:
 
@@ -35,7 +36,7 @@ while True:
         time.sleep(1)
 
     userInput = UserInput()
-    drink_type = userInput.get_coffee_type(hideDebugPrint=True)
+    drink_type = userInput.get_coffee_type()
     coffee_strength = userInput.get_coffee_strength()
 
     pb1 = ProgressBar(total=100, prefix="Containers preparing", suffix="Complete", decimals=0, length=50, zfill='-')

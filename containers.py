@@ -32,7 +32,7 @@ class Container:
         pb1 = ProgressBar(total=100.0, prefix="%s state" % self.ingredient, suffix="in %s container capacity" % self.ingredient, fill="|", decimals=0, length=30, zfill='-')
         pb1.print_progress_bar(how_many_ingredient)
 
-    def _is_enough_ingredient(self, needed_ingredient_amount, hide_debug_prints=False):
+    def _is_enough_ingredient(self, needed_ingredient_amount):
         """
         Check if in container is enough of given ingredient
         @needed_ingredient_amount: int - how many ingredient is needed
@@ -40,31 +40,27 @@ class Container:
         Returns True if in container is enough given ingredient, False otherwise
         """
         if not self.ingredient_available >= 0 or not needed_ingredient_amount >= 0:
-            if not hide_debug_prints:
-                print("[!!!] Number of available and needed %s cannot be negative" % self.ingredient)
+            logging.debug("[!!!] Number of available and needed %s cannot be negative" % self.ingredient)
             return False
         if not self.ingredient_available >= needed_ingredient_amount:
-            if not hide_debug_prints:
-                print("[!!!] Not enough %s to make a coffe drink" % self.ingredient)
+            logging.debug("[!!!] Not enough %s to make a coffe drink" % self.ingredient)
             return False
-        if not hide_debug_prints:
-            print("Enough %s to make a coffe drink" % self.ingredient)
+        logging.debug("Enough %s to make a coffe drink" % self.ingredient)
         return True
 
-    def _refill_container(self, hide_debug_prints=False):
+    def _refill_container(self):
         """
         Fill or empty container
         @hide_debug_prints: boolean - if True printed text is not shown, if False it is:
         Returns True if container filled successfully, False otherwise
         """
-        refilling = input("Wrong %s amount. Please type \'y\' to refill: " % self.ingredient)
-        if not refilling == "y":
-            if not hide_debug_prints:
-                logging.debug("[!!!] %s container is not ready. Cannot make coffee" % self.ingredient)
+        refilling = input("Wrong {} amount. Please type 1 to refill: ".format(self.ingredient))
+        # print(type(refilling))
+        if not refilling == 1:
+            logging.debug("[!!!] %s container is not ready. Cannot make coffee" % self.ingredient)
             exit(0)
         self.ingredient_available = self.max_ingredient_amount_in_container
-        if not hide_debug_prints:
-            logging.debug("%s container is ready for making coffee" % self.ingredient)
+        logging.debug("%s container is ready for making coffee" % self.ingredient)
         return self.ingredient_available
 
     def _draw_empty_container(self):
@@ -81,7 +77,7 @@ class Container:
         if self.ingredient == "ground space":
             self.coffeeDrinksAscii.print_trashcan()
 
-    def take_needed_ingredient_amount(self, needed_ingredient_amount, hide_drawings=False, hide_debug_prints=False):
+    def take_needed_ingredient_amount(self, needed_ingredient_amount, hide_drawings=False):
         """
         Update amount of available ingredient in container
         @needed_ingredient_amount: int - how many ingredient is needed
@@ -90,16 +86,15 @@ class Container:
         Returns updated amount of ingredient in container
         """
         if not self._is_enough_ingredient(
-                needed_ingredient_amount=needed_ingredient_amount, hide_debug_prints=hide_debug_prints):
+                needed_ingredient_amount=needed_ingredient_amount):
             if not hide_drawings:
                 self._draw_empty_container()
-            self.ingredient_available = self._refill_container(hide_debug_prints=hide_debug_prints)
+            self.ingredient_available = self._refill_container()
             if not self.ingredient_available:
                 return False
         else:
             self.ingredient_available -= needed_ingredient_amount
-        if not hide_debug_prints:
-            logging.debug("Needed %s amount successfully taken" % self.ingredient)
+        logging.debug("Needed %s amount successfully taken" % self.ingredient)
         return self.ingredient_available
 
 
