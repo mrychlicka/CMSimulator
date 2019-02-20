@@ -6,7 +6,7 @@ from ascii_art import CoffeeDrinksAscii
 
 
 class Container:
-    """ Class represents base functionality of containers"""
+    """ Class represents base functionality of containers """
 
     def __init__(self, ingredient_available):
         self.ingredient_available = ingredient_available
@@ -17,16 +17,18 @@ class Container:
     def how_many_ingredient_in_container(self):
         """
         Show container state
-        Returns amount of ingredient in container
+        :return: amount of ingredient in container
         """
         return self.ingredient_available
 
     def print_container_state_progres_bar(self, ingredient_available):
         """
         Show container state as percentage of max capacity of container with state bar
-        @ingredient_available: amount of ingredient in container
-        Returns None
+        :param str ingredient_available: amount of ingredient in container
+        :return: None
         """
+
+
         max_ingredient = self.max_ingredient_amount_in_container
         how_many_ingredient = ingredient_available * 100 / max_ingredient
         pb1 = ProgressBar(total=100.0, prefix="%s state" % self.ingredient, suffix="in %s container capacity" % self.ingredient, fill="|", decimals=0, length=30, zfill='-')
@@ -35,15 +37,14 @@ class Container:
     def _is_enough_ingredient(self, needed_ingredient_amount):
         """
         Check if in container is enough of given ingredient
-        @needed_ingredient_amount: int - how many ingredient is needed
-        @hide_debug_prints: boolean - if True printed text is not shown, if False it is
-        Returns True if in container is enough given ingredient, False otherwise
+        :param int needed_ingredient_amount: how many ingredient is needed
+        :return: True if in container is enough given ingredient, False otherwise
         """
         if not self.ingredient_available >= 0 or not needed_ingredient_amount >= 0:
             logging.debug("[!!!] Number of available and needed %s cannot be negative" % self.ingredient)
             return False
         if not self.ingredient_available >= needed_ingredient_amount:
-            logging.debug("[!!!] Not enough %s to make a coffe drink" % self.ingredient)
+            logging.debug("[!!!] Not enough %s to make a coffee drink" % self.ingredient)
             return False
         logging.debug("Enough %s to make a coffe drink" % self.ingredient)
         return True
@@ -51,11 +52,9 @@ class Container:
     def _refill_container(self):
         """
         Fill or empty container
-        @hide_debug_prints: boolean - if True printed text is not shown, if False it is:
-        Returns True if container filled successfully, False otherwise
+        :return: True if container filled successfully, False otherwise
         """
         refilling = input("Wrong {} amount. Please type 1 to refill: ".format(self.ingredient))
-        # print(type(refilling))
         if not refilling == 1:
             logging.debug("[!!!] %s container is not ready. Cannot make coffee" % self.ingredient)
             exit(0)
@@ -66,7 +65,7 @@ class Container:
     def _draw_empty_container(self):
         """
         Print ascii drawing of container to refill
-        Returns None
+        :return: None
         """
         if self.ingredient == "coffee":
             self.coffeeDrinksAscii.print_coffee_beans()
@@ -80,10 +79,9 @@ class Container:
     def take_needed_ingredient_amount(self, needed_ingredient_amount, hide_drawings=False):
         """
         Update amount of available ingredient in container
-        @needed_ingredient_amount: int - how many ingredient is needed
-        @hide_drawings: boolean - if True ascii drawing is not shown, if False it is
-        @hide_debug_prints: boolean - if True printed text is not shown, if False it is
-        Returns updated amount of ingredient in container
+        :param int needed_ingredient_amount: how many ingredient is needed
+        :param boolean hide_drawings: if True ascii drawing is not shown, if False it is
+        :return: updated amount of ingredient in container
         """
         if not self._is_enough_ingredient(
                 needed_ingredient_amount=needed_ingredient_amount):

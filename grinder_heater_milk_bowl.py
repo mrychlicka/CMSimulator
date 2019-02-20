@@ -11,7 +11,7 @@ class CoffeeGrinder:
     def grind_coffee(self):
         """
         Grind coffee beans
-        Returns True if grinder successfully, False otherwise
+        :return: True if grinder successfully, False otherwise
         """
         coffee_ground = False
         if not self.how_many_coffee <= 0:
@@ -33,7 +33,7 @@ class Heater:
     def _heat_water_to_95(self):
         """
         Heat water from room temperature (15-25C) to to 95C
-        Returns True if heated successfully, False otherwise
+        :return: True if heated successfully, False otherwise
         """
         limit = 0
         heating_water = self.room_temperature_of_water
@@ -44,7 +44,7 @@ class Heater:
 
     def heat_water(self):
         """
-        Returns True if heated successfully, False otherwise
+        :return: True if heated successfully, False otherwise
         """
         heated = False
         for water_temperature in self._heat_water_to_95():
@@ -65,7 +65,7 @@ class CoffeeBrewingBowl:
 
     def brew_coffee(self):
         """
-        Returns True if coffee brewed successfully, False otherwise
+        :return: True if coffee brewed successfully, False otherwise
         """
         brewed_coffee = self.coffee_ground and self.water_heated
         if brewed_coffee:
@@ -84,7 +84,7 @@ class MilkFrother():
     def _milk_frothing(self):
         """
         Steam milk
-        Returns True if milk steamed, False otherwise
+        :return: True if milk steamed, False otherwise
         """
         milk_is_frothed = False
         for i in range(self.how_many_milk):
@@ -97,8 +97,8 @@ class MilkFrother():
 
     def pour_milk(self, steamed=False):
         """
-        @steamed: boolean - if True froth milk, False if not
-        Returns True if milk poured to the cup, False otherwise
+        :param boolean steamed: if True froth milk, False if not
+        :return: True if milk poured to the cup, False otherwise
         """
         milk_in_cup = False
         if not self.how_many_milk <= 0:

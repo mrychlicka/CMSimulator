@@ -10,8 +10,8 @@ class UserInput:
     def get_coffee_type(self, hideASCII=False):
         """
         Take user choice - which coffee drink wants to be done
-        @hideASCII: boolean - if True ascii drawings is not shown, if False it is
-        Returns typed coffee type, False if user input is wrong
+        :param boolean hideASCII: if True ascii drawings is not shown, if False it is
+        :return: typed coffee type, False if user input is wrong
         """
         for i in range(2):
             drink_number = input("Pick coffe drink or turn off coffee machine - type \'1\' for espresso, \n"
@@ -43,7 +43,7 @@ class UserInput:
     def get_coffee_strength(self):
         """
         Take user choice - coffee strength
-        Returns typed coffee strength, False if user input is wrong
+        :return: typed coffee strength, False if user input is wrong
         """
         for i in range(2):
             coffee_strength_number = input("Pick coffee strength - type \' 1\' if you want weak coffee, "

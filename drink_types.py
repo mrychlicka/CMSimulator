@@ -15,7 +15,7 @@ class Espresso:
     def make_espresso(self):
         """
         Prepare espresso coffee drink
-        Returns True if espresso prepared successfully, False otherwise
+        :return: True if espresso prepared successfully, False otherwise
         """
         espressoInCup = False
         coffee_ground = self.coffeeGrinder.grind_coffee()
@@ -40,7 +40,7 @@ class Cappuccino(Espresso):
     def make_cappuccino(self):
         """
         Prepare cappuccino coffee drink
-        Returns True if cappuccino prepared successfully, False otherwise
+        :return: True if cappuccino prepared successfully, False otherwise
         """
         espresso = self.make_espresso()
         steamed_milk = MilkFrother(how_many_milk=self.milk).pour_milk(steamed=True)
@@ -58,7 +58,7 @@ class LatteMacchiato(Espresso):
     def make_latte_macchiato(self):
         """
         Prepare latte macchiato coffee drink
-        Returns True if latte macchiato prepared successfully, False otherwise
+        :return: True if latte macchiato prepared successfully, False otherwise
         """
         milk_frother = MilkFrother(how_many_milk=self.milk/2)
         no_steamed_milk = milk_frother.pour_milk(steamed=False)

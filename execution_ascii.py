@@ -70,7 +70,7 @@ while True:
 
     if drink_type == "espresso":
         espresso = Espresso(coffee_strength=coffee_strength)
-        with HiddenPrints():
+        with HiddenPrints():  # TODO: not existed class
             made_espresso = espresso.make_espresso()
         if made_espresso:
             coffeeDrinksAscii.print_espresso()
