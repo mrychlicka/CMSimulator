@@ -22,10 +22,10 @@ coffeeDrinksAscii = CoffeeDrinksAscii()
 while True:
 
     logging.info(" === Containers state ===")
-    print("%s grams of coffee beans in coffee grinder" % coffeeContainer.how_many_ingredient_in_container())
-    print("%s ml of water in water container" % waterContainer.how_many_ingredient_in_container())
-    print("%s ml of milk in milk container" % milkContainer.how_many_ingredient_in_container())
-    print("Space for %s coffee grounds" % groundsContainer.how_many_ingredient_in_container())
+    print("{} grams of coffee beans in coffee grinder".format(coffeeContainer.how_many_ingredient_in_container()))
+    print("{} ml of water in water container".format(waterContainer.how_many_ingredient_in_container()))
+    print("{} ml of milk in milk container".format(milkContainer.how_many_ingredient_in_container()))
+    print("Space for {} coffee grounds".format(groundsContainer.how_many_ingredient_in_container()))
     print(" ========================")
 
     userInput = UserInput()

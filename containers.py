@@ -24,14 +24,12 @@ class Container:
     def print_container_state_progres_bar(self, ingredient_available):
         """
         Show container state as percentage of max capacity of container with state bar
-        :param str ingredient_available: amount of ingredient in container
+        :param int ingredient_available: amount of ingredient in container
         :return: None
         """
-
-
         max_ingredient = self.max_ingredient_amount_in_container
         how_many_ingredient = ingredient_available * 100 / max_ingredient
-        pb1 = ProgressBar(total=100.0, prefix="%s state" % self.ingredient, suffix="in %s container capacity" % self.ingredient, fill="|", decimals=0, length=30, zfill='-')
+        pb1 = ProgressBar(total=100.0, prefix="{} state".format(self.ingredient), suffix="in {} container capacity".format(self.ingredient), fill="|", decimals=0, length=30, zfill='-')
         pb1.print_progress_bar(how_many_ingredient)
 
     def _is_enough_ingredient(self, needed_ingredient_amount):
@@ -41,12 +39,12 @@ class Container:
         :return: True if in container is enough given ingredient, False otherwise
         """
         if not self.ingredient_available >= 0 or not needed_ingredient_amount >= 0:
-            logging.debug("[!!!] Number of available and needed %s cannot be negative" % self.ingredient)
+            logging.debug("[!!!] Number of available and needed {} cannot be negative".format(self.ingredient))
             return False
         if not self.ingredient_available >= needed_ingredient_amount:
-            logging.debug("[!!!] Not enough %s to make a coffee drink" % self.ingredient)
+            logging.debug("[!!!] Not enough {} to make a coffee drink".format(self.ingredient))
             return False
-        logging.debug("Enough %s to make a coffe drink" % self.ingredient)
+        logging.debug("Enough {} to make a coffe drink".format(self.ingredient))
         return True
 
     def _refill_container(self):
@@ -56,10 +54,10 @@ class Container:
         """
         refilling = input("Wrong {} amount. Please type 1 to refill: ".format(self.ingredient))
         if not refilling == 1:
-            logging.debug("[!!!] %s container is not ready. Cannot make coffee" % self.ingredient)
+            logging.debug("[!!!] {} container is not ready. Cannot make coffee".format(self.ingredient))
             exit(0)
         self.ingredient_available = self.max_ingredient_amount_in_container
-        logging.debug("%s container is ready for making coffee" % self.ingredient)
+        logging.debug("{} container is ready for making coffee".format(self.ingredient))
         return self.ingredient_available
 
     def _draw_empty_container(self):
@@ -92,7 +90,7 @@ class Container:
                 return False
         else:
             self.ingredient_available -= needed_ingredient_amount
-        logging.debug("Needed %s amount successfully taken" % self.ingredient)
+        logging.debug("Needed {} amount successfully taken".format(self.ingredient))
         return self.ingredient_available
 
 

@@ -16,7 +16,7 @@ class CoffeeGrinder:
         coffee_ground = False
         if not self.how_many_coffee <= 0:
             for i in range(self.how_many_coffee):
-                logging.debug("Grinding... Ground %s grams of coffee" % (i + 1))
+                logging.debug("Grinding... Ground {} grams of coffee".format(i + 1))
             logging.info("Coffee grounded successfully")
             coffee_ground = True
         else:
@@ -49,7 +49,7 @@ class Heater:
         heated = False
         for water_temperature in self._heat_water_to_95():
             if water_temperature % 5 == 0:
-                logging.debug("Water is heating. Temperature: %s" % water_temperature)
+                logging.debug("Water is heating. Temperature: {}".format(water_temperature))
             if water_temperature == 95:
                 logging.debug("Water heated to 95 C. Ready for brewing")
                 heated = True
