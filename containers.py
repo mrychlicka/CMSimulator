@@ -44,7 +44,7 @@ class Container:
         if not self.ingredient_available >= needed_ingredient_amount:
             logging.debug("[!!!] Not enough {} to make a coffee drink".format(self.ingredient))
             return False
-        logging.debug("Enough {} to make a coffe drink".format(self.ingredient))
+        logging.debug("Enough {} to make a coffee drink".format(self.ingredient))
         return True
 
     def _refill_container(self):

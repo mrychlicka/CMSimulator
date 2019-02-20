@@ -9,7 +9,7 @@ class Espresso:
     def __init__(self, coffee_strength):
         self.coffee = coffee_strength
         self.water = 100
-        self.coffeeGrinder = CoffeeGrinder(how_many_coffee=self.coffee)
+        self.coffee_grinder = CoffeeGrinder(how_many_coffee=self.coffee)
         self.heater = Heater()
 
     def make_espresso(self):
@@ -17,16 +17,16 @@ class Espresso:
         Prepare espresso coffee drink
         :return: True if espresso prepared successfully, False otherwise
         """
-        espressoInCup = False
-        coffee_ground = self.coffeeGrinder.grind_coffee()
+        espresso_in_cup = False
+        coffee_ground = self.coffee_grinder.grind_coffee()
         water_heated = self.heater.heat_water()
         brewed_coffee = CoffeeBrewingBowl(coffee_ground=coffee_ground, water_heated=water_heated).brew_coffee()
         if brewed_coffee:
             logging.info("Espresso is ready")
-            espressoInCup = True
-            return espressoInCup
+            espresso_in_cup = True
+            return espresso_in_cup
         print("Making espresso failed")
-        return espressoInCup
+        return espresso_in_cup
 
 
 class Cappuccino(Espresso):

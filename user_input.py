@@ -7,10 +7,10 @@ from pyfiglet import figlet_format
 class UserInput:
     """ Class represents user input """
 
-    def get_coffee_type(self, hideASCII=False):
+    def get_coffee_type(self, hide_ASCII=False):
         """
         Take user choice - which coffee drink wants to be done
-        :param boolean hideASCII: if True ascii drawings is not shown, if False it is
+        :param boolean hide_ASCII: if True ascii drawings is not shown, if False it is
         :return: typed coffee type, False if user input is wrong
         """
         for i in range(2):
@@ -28,7 +28,7 @@ class UserInput:
                     return drink_type
 
             if drink_number == "exit":
-                if not hideASCII:
+                if not hide_ASCII:
                     cprint(figlet_format("TURNED OFF", font="standard"), "white")
                 logging.info("Coffee machine turned off")
                 exit(0)

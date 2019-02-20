@@ -12,31 +12,31 @@ water_available = 500
 milk_available = 100
 grounds_space = 4
 
-coffeeContainer = CoffeeContainer(coffee_available)
-waterContainer = WaterContainer(water_available)
-milkContainer = MilkContainer(milk_available)
-groundsContainer = GroundsContainer(grounds_space)
+coffee_container = CoffeeContainer(coffee_available)
+water_container = WaterContainer(water_available)
+milk_container = MilkContainer(milk_available)
+grounds_container = GroundsContainer(grounds_space)
 
-coffeeDrinksAscii = CoffeeDrinksAscii()
+coffee_drinks_ascii = CoffeeDrinksAscii()
 
 while True:
 
     logging.info(" === Containers state ===")
-    print("{} grams of coffee beans in coffee grinder".format(coffeeContainer.how_many_ingredient_in_container()))
-    print("{} ml of water in water container".format(waterContainer.how_many_ingredient_in_container()))
-    print("{} ml of milk in milk container".format(milkContainer.how_many_ingredient_in_container()))
-    print("Space for {} coffee grounds".format(groundsContainer.how_many_ingredient_in_container()))
+    print("{} grams of coffee beans in coffee grinder".format(coffee_container.how_many_ingredient_in_container()))
+    print("{} ml of water in water container".format(water_container.how_many_ingredient_in_container()))
+    print("{} ml of milk in milk container".format(milk_container.how_many_ingredient_in_container()))
+    print("Space for {} coffee grounds".format(grounds_container.how_many_ingredient_in_container()))
     print(" ========================")
 
-    userInput = UserInput()
-    drink_type = userInput.get_coffee_type()
-    coffee_strength = userInput.get_coffee_strength()
+    user_input = UserInput()
+    drink_type = user_input.get_coffee_type()
+    coffee_strength = user_input.get_coffee_strength()
 
     logging.info(" ======= Containers preparing ======= ")
-    coffeeContainer.take_needed_ingredient_amount(needed_ingredient_amount=3, hide_drawings=True)
-    waterContainer.take_needed_ingredient_amount(needed_ingredient_amount=100, hide_drawings=True)
-    milkContainer.take_needed_ingredient_amount(needed_ingredient_amount=100, hide_drawings=True)
-    groundsContainer.take_needed_ingredient_amount(needed_ingredient_amount=1, hide_drawings=True)
+    coffee_container.take_needed_ingredient_amount(needed_ingredient_amount=3, hide_drawings=True)
+    water_container.take_needed_ingredient_amount(needed_ingredient_amount=100, hide_drawings=True)
+    milk_container.take_needed_ingredient_amount(needed_ingredient_amount=100, hide_drawings=True)
+    grounds_container.take_needed_ingredient_amount(needed_ingredient_amount=1, hide_drawings=True)
 
     if drink_type == "espresso":
         espresso = Espresso(coffee_strength=coffee_strength)
