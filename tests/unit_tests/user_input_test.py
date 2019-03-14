@@ -5,48 +5,48 @@ from user_input import UserInput
 
 class TestUserInput(TestCase):
 
-    def testGetCoffeType1(self):
+    def test_get_coffe_type_1(self):
         userInput = UserInput()
-        with patch("__builtin__.input", return_value="1"):
+        with patch("builtins.input", return_value=1):
             assert userInput.get_coffee_type() == "espresso"
 
-    def testGetCoffeType2(self):
+    def test_get_coffe_type_2(self):
         userInput = UserInput()
-        with patch("__builtin__.input", return_value="2"):
+        with patch("builtins.input", return_value=2):
             assert userInput.get_coffee_type() == "capuccino"
 
-    def testGetCoffeType3(self):
+    def test_get_coffee_type_3(self):
         userInput = UserInput()
-        with patch("__builtin__.input", return_value="3"):
+        with patch("builtins.input", return_value=3):
             assert userInput.get_coffee_type() == "latte macchiato"
 
-    def testGetCoffeType4(self):
+    def test_get_coffe_type_4(self):
         userInput = UserInput()
-        with patch("__builtin__.input", return_value="4"):
+        with patch("builtins.input", return_value=4):
             assert not userInput.get_coffee_type()
 
-    def testGetCoffeType5(self):
+    def test_get_coffe_type_5(self):
         userInput = UserInput()
-        with patch("__builtin__.input", return_value="foo"):
+        with patch("builtins.input", return_value="foo"):
             assert not userInput.get_coffee_type()
     # ===================================================================================
 
-    def TestGetCoffeeStrength1(self):
+    def test_get_coffee_strength_1(self):
         userInput = UserInput()
-        with patch("__builtin__.input", return_value="1"):
+        with patch("builtins.input", return_value=1):
             assert userInput.get_coffee_strength() == 3
 
-    def TestGetCoffeeStrength2(self):
+    def test_get_coffee_strength_2(self):
         userInput = UserInput()
-        with patch("__builtin__.input", return_value="2"):
+        with patch("builtins.input", return_value=2):
             assert userInput.get_coffee_strength() == 5
 
-    def TestGetCoffeeStrength3(self):
+    def test_get_coffee_strength_3(self):
         userInput = UserInput()
-        with patch("__builtin__.input", return_value="3"):
+        with patch("builtins.input", return_value=3):
             assert userInput.get_coffee_strength() == 7
 
-    def TestGetCoffeeStrength4(self):
+    def test_get_coffee_strength_4(self):
         userInput = UserInput()
-        with patch("__builtin__.input", return_value="foo"):
-            assert not userInput.get_coffee_strength()
+        with patch("builtins.input", return_value="foo"):
+            self.assertRaises(ValueError, userInput.get_coffee_strength())
