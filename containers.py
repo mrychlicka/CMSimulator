@@ -6,6 +6,7 @@ from ascii_art import CoffeeDrinksAscii
 
 logging.basicConfig(level=logging.INFO)
 
+
 class Container:
     """ Class represents base functionality of containers """
 

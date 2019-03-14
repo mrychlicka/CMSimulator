@@ -1,8 +1,8 @@
 import random
 import logging
 
-# logging.basicConfig(level=logging.INFO)
 logging.basicConfig(level=logging.INFO)
+
 
 class CoffeeGrinder:
     """Class represents grinder functionality"""

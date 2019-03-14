@@ -5,6 +5,7 @@ from pyfiglet import figlet_format
 
 logging.basicConfig(level=logging.INFO)
 
+
 class UserInput:
     """ Class represents user input """
 
@@ -38,7 +39,6 @@ class UserInput:
                 if not hide_ASCII:
                     cprint(figlet_format("TURNED OFF", font="standard"), "white")
                 logging.info("Coffee machine turned off")
-                exit(0)
 
     def get_coffee_strength(self):
         """
@@ -62,4 +62,4 @@ class UserInput:
             for key, val in strengths.items():
                 if coffee_strength_number == key:
                     coffee_strength = val
-            return coffee_strength
+                    return coffee_strength
