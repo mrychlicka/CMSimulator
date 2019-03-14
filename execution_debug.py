@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
-import logging
+import logging.handlers
 
 from ascii_art import CoffeeDrinksAscii
 from user_input import UserInput
 from containers import CoffeeContainer, WaterContainer, MilkContainer, GroundsContainer
 from drink_types import Espresso, Cappuccino, LatteMacchiato
 
-
+logging.basicConfig(level=logging.INFO)
 coffee_available = 3  # TODO: uppercase - as a static values
 water_available = 500
 milk_available = 100

@@ -1,5 +1,7 @@
 import logging
 
+logging.basicConfig(level=logging.INFO)
+
 class CoffeeDrinksAscii:
 
     def print_coffee_machine(self):

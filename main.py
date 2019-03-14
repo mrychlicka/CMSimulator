@@ -1,6 +1,7 @@
 import os
 import logging
 
+logging.basicConfig(level=logging.INFO)
 execution_mode = input("In which mode you want to execute coffee machine simulator? "
                            "Type \'1\' for \'asci drawings\' mode, \'2\' if debug mode: ")
 if execution_mode == "1":

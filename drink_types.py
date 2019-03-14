@@ -2,6 +2,7 @@ import logging
 
 from grinder_heater_milk_bowl import CoffeeGrinder, Heater, CoffeeBrewingBowl, MilkFrother
 
+logging.basicConfig(level=logging.INFO)
 
 class Espresso:
     """ Class represents espresso coffee drink """

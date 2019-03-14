@@ -4,6 +4,7 @@ import logging
 from console_progressbar import ProgressBar
 from ascii_art import CoffeeDrinksAscii
 
+logging.basicConfig(level=logging.INFO)
 
 class Container:
     """ Class represents base functionality of containers """
@@ -39,12 +40,12 @@ class Container:
         :return: True if in container is enough given ingredient, False otherwise
         """
         if not self.ingredient_available >= 0 or not needed_ingredient_amount >= 0:
-            logging.debug("[!!!] Number of available and needed {} cannot be negative".format(self.ingredient))
+            logging.info("[!!!] Number of available and needed {} cannot be negative".format(self.ingredient))
             return False
         if not self.ingredient_available >= needed_ingredient_amount:
-            logging.debug("[!!!] Not enough {} to make a coffee drink".format(self.ingredient))
+            logging.info("[!!!] Not enough {} to make a coffee drink".format(self.ingredient))
             return False
-        logging.debug("Enough {} to make a coffee drink".format(self.ingredient))
+        logging.info("Enough {} to make a coffee drink".format(self.ingredient))
         return True
 
     def _refill_container(self):
@@ -54,10 +55,10 @@ class Container:
         """
         refilling = input("Wrong {} amount. Please type 1 to refill: ".format(self.ingredient))
         if not refilling == 1:
-            logging.debug("[!!!] {} container is not ready. Cannot make coffee".format(self.ingredient))
+            logging.info("[!!!] {} container is not ready. Cannot make coffee".format(self.ingredient))
             exit(0)
         self.ingredient_available = self.max_ingredient_amount_in_container
-        logging.debug("{} container is ready for making coffee".format(self.ingredient))
+        logging.info("{} container is ready for making coffee".format(self.ingredient))
         return self.ingredient_available
 
     def _draw_empty_container(self):
@@ -90,7 +91,7 @@ class Container:
                 return False
         else:
             self.ingredient_available -= needed_ingredient_amount
-        logging.debug("Needed {} amount successfully taken".format(self.ingredient))
+        logging.info("Needed {} amount successfully taken".format(self.ingredient))
         return self.ingredient_available
 
 

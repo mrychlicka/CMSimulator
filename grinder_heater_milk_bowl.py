@@ -1,6 +1,8 @@
 import random
 import logging
 
+# logging.basicConfig(level=logging.INFO)
+logging.basicConfig(level=logging.INFO)
 
 class CoffeeGrinder:
     """Class represents grinder functionality"""
@@ -16,11 +18,11 @@ class CoffeeGrinder:
         coffee_ground = False
         if not self.how_many_coffee <= 0:
             for i in range(self.how_many_coffee):
-                logging.debug("Grinding... Ground {} grams of coffee".format(i + 1))
+                logging.info("Grinding... Ground {} grams of coffee".format(i + 1))
             logging.info("Coffee grounded successfully")
             coffee_ground = True
         else:
-            logging.debug("[!!!] Grinding coffee failed")
+            logging.info("[!!!] Grinding coffee failed")
         return coffee_ground
 
 
@@ -49,9 +51,9 @@ class Heater:
         heated = False
         for water_temperature in self._heat_water_to_95():
             if water_temperature % 5 == 0:
-                logging.debug("Water is heating. Temperature: {}".format(water_temperature))
+                logging.info("Water is heating. Temperature: {}".format(water_temperature))
             if water_temperature == 95:
-                logging.debug("Water heated to 95 C. Ready for brewing")
+                logging.info("Water heated to 95 C. Ready for brewing")
                 heated = True
         return heated
 
@@ -69,9 +71,9 @@ class CoffeeBrewingBowl:
         """
         brewed_coffee = self.coffee_ground and self.water_heated
         if brewed_coffee:
-            logging.debug("Coffee brewing successfully")
+            logging.info("Coffee brewing successfully")
         else:
-            logging.debug("[!!!] Coffee brewing failed")
+            logging.info("[!!!] Coffee brewing failed")
         return brewed_coffee
 
 
@@ -89,9 +91,9 @@ class MilkFrother():
         milk_is_frothed = False
         for i in range(self.how_many_milk):
             if i % 20 == 0:
-                logging.debug("Milk frothing...")
+                logging.info("Milk frothing...")
             if i == self.how_many_milk-1:
-                logging.debug("Milk frothed successfully")
+                logging.info("Milk frothed successfully")
                 milk_is_frothed = True
         return milk_is_frothed
 
@@ -105,5 +107,5 @@ class MilkFrother():
             milk_in_cup = True
             if steamed:
                 return self._milk_frothing() and milk_in_cup
-            logging.debug("Milk poured into a cup")
+            logging.info("Milk poured into a cup")
         return milk_in_cup
